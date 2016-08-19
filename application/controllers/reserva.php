@@ -8,7 +8,7 @@ class Reserva extends CI_Controller {
     function __construct() {
         parent::__construct();
         verifica_login(); //Verifica se tem usuario logado
-        $this->load->model('reserva_model');
+        $this->load->model('sala_model');
         $this->load->model('reserva_model');
     }
 
@@ -28,8 +28,9 @@ class Reserva extends CI_Controller {
     public function form_reserva() {
 
         $dados = array('titulo_pagina' => 'Reserva Fácil - Cadastro de Reservas');
+        $dados2 = array('salas' => $this->sala_model->listar_salas()->result());
         $this->load->view('includes/cabecalho', $dados);
-        $this->load->view('reserva/reserva_cadastro_view');
+        $this->load->view('reserva/reserva_cadastro_view', $dados2);
         $this->load->view('includes/rodape');
     }
 
