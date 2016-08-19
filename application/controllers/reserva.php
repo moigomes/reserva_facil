@@ -82,5 +82,18 @@ class Reserva extends CI_Controller {
         $this->load->view('reserva/reserva_edita_view', $dados2);
         $this->load->view('includes/rodape');
     }
+    
+    
+    function verifica_horarios(){
+        $idSala = $this->input->post('idSala');
+        $data = $this->input->post('data');
+        $resultado='<option value="0">Selecione</option>';
+       for ($i = 8; $i <= 18; $i++) { 
+             $resultado .='<option value="'.$i.'">'.$i.'</option>';   
+        }  
+        
+        echo $resultado;
+        
+    }
 
 }

@@ -12,10 +12,10 @@
         </div>
         <div style=" width: 30%; " class="div_input_formulario" >
             <label for='campo1'>Sala:</label>
-            <select name="idSala" >
+            <select name="idSala" id="idSala" >
                 <option value="0">Selecione</option>
-                <?php foreach ($salas as $sala){ ?>
-                 <option value="<?php echo $sala->idSala; ?>"><?php echo $sala->nomeSala; ?></option>   
+                <?php foreach ($salas as $sala) { ?>
+                    <option value="<?php echo $sala->idSala; ?>"><?php echo $sala->nomeSala; ?></option>   
                 <?php } ?>
 
             </select>
@@ -26,11 +26,9 @@
         </div>
         <div style=" width: 30%; " class="div_input_formulario" >
             <label for='campo1'>Horários disponíveis:</label>
-             <select name="idSala" >
+            <select name="hora" id="horarios" >
                 <option value="0">Selecione</option>
-                <?php for ($i=8; $i<=18; $i++){ ?>
-                 <option value="<?php echo $i; ?>"><?php echo $i; ?></option>   
-                <?php } ?>
+                
 
             </select>      
         </div>
@@ -49,7 +47,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        
+
         $("#data").datepicker({
             dateFormat: 'dd/mm/yy',
             dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
@@ -63,8 +61,38 @@
                 $(".ui-datepicker").css('font-size', 16)
             },
             onClose: function (selectedDate) {
-                $("#dataDevol").datepicker("option", "minDate", selectedDate);
+                atualizaHorarios();
+
             }
+
+
+
         });
+
+        function atualizaHorarios() {
+
+
+            var idSala = $('#idSala').val();
+
+            var data = $('#data').val();
+            //alert(data2);
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>reserva/verifica_horarios",
+                data: "idSala=" + idSala + "&data=" + data,
+                
+                success: function (data)
+                {
+
+                   
+                        $('#horarios').html(data);
+                    
+                }
+            });
+
+        }
+
+
+
     });
-        </script>
+</script>
