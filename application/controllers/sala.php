@@ -16,7 +16,7 @@ class Sala extends CI_Controller {
 
         $salas = $this->sala_model->listar_salas()->result();
 
-        $dados = array('titulo_pagina' => 'Reserva Fácil - Lista de Produtos');
+        $dados = array('titulo_pagina' => 'Reserva Fácil - Lista de Salas');
         $dados2 = array('salas' => $salas);
 
         $this->load->view('includes/cabecalho', $dados);
@@ -34,7 +34,7 @@ class Sala extends CI_Controller {
 
     //Reune os dados vindo do formulario, valida e manda para o model salvar no banco
     public function salvar_sala() {
-        $idProduto = $this->input->post('idSala');
+        
         //Valida os campos
         $this->form_validation->set_rules('idSala', 'idSala');
         $this->form_validation->set_rules('nomeSala', 'NOME SALA', 'required|ucwords');
@@ -47,7 +47,7 @@ class Sala extends CI_Controller {
                 $this->form_editar_sala(null);
         }
         else {
-            $dados = elements(array('nomeSala'), $this->input->post());
+            $dados = elements(array('sala'), $this->input->post());
 
             if ($idSala == '')
                 $this->sala_model->salvar_sala($dados);
