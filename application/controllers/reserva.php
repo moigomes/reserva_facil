@@ -49,6 +49,8 @@ class Reserva extends CI_Controller {
             $this->form_reserva();
         } else {
 
+
+
             $data = explode('/', $this->input->post('data'));
             $data = $data[2] . '-' . $data[1] . '-' . $data[0];
             $dados = array('descricao' => $this->input->post('descricao'),
@@ -58,11 +60,17 @@ class Reserva extends CI_Controller {
                 'idUsuario' => $this->session->userdata('idUsuario')
             );
 
+            if ($this->reserva_model->verifica_reserva($this->session->userdata('idUsuario'), $data)->num_rows() > 0){
+                 echo '<script>alert("Desculpa mas voce já reservou outra sala para esta mesma data e horário!");</script>';
+                $this->form_reserva();
+            }
+                
+            else {
+                $this->reserva_model->salvar_reserva($dados);
 
-            $this->reserva_model->salvar_reserva($dados);
 
-
-            redirect('reserva');
+                redirect('reserva');
+            }
         }
     }
 
@@ -70,21 +78,6 @@ class Reserva extends CI_Controller {
 
         $this->reserva_model->excluir_reserva($idReserva);
         redirect('reserva');
-    }
-
-    public function form_editar_reserva($idReserva) {
-
-        $reserva = $this->reserva_model->listar_reserva_por_idReserva($idReserva)->result();
-        $dados = array(
-            'titulo_pagina' => 'Reserva Fácil - Editar Reserva'
-        );
-
-        $dados2 = array(
-            'reserva' => $reserva[0],
-        );
-        $this->load->view('includes/cabecalho', $dados);
-        $this->load->view('reserva/reserva_edita_view', $dados2);
-        $this->load->view('includes/rodape');
     }
 
     function verifica_horarios() {
@@ -110,11 +103,19 @@ class Reserva extends CI_Controller {
 
             if (array_search($i, $hora) === FALSE) {
 
-                $horarios .='<option value="' . $i . '">' . $i .':00 às '.($i+1).':00</option>';
+                $horarios .='<option value="' . $i . '">' . $i . ':00 às ' . ($i + 1) . ':00</option>';
+            }
+            else{
+                $horarios .='<option disabled value="' . $i . '">' . $i . ':00 às ' . ($i + 1) . ':00 (RESERVADO)</option>';
             }
         }
 
         echo $horarios;
+    }
+
+    //verifica se o usuario ja não reservou uma outra sala no mesmo horário
+    function verifica_reserva($idUsuario, $data) {
+        
     }
 
 }
