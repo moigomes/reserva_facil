@@ -4,13 +4,13 @@
     </div>
 
     <?php echo form_open('reserva/salvar_reserva'); ?>
-    <input id='campo0' type='hidden' name='idReserva' value="" />
+
     <div  style="position: relative; width: 100%"  >  
         <div style=" width: 100%; " class="div_input_formulario" >
             <label for='campo1'>Descrição:</label>
-            <input class="input_formulario" id='campo1' type='text' name='descricao' value="<?php echo set_value('descricao'); ?>" />      
+            <input class="input_formulario_ultimo" id='campo1' type='text' name='descricao' value="<?php echo set_value('descricao'); ?>" />      
         </div>
-        <div style=" width: 30%; " class="div_input_formulario" >
+        <div style=" width: 30%; margin-right: 20px; " class="div_input_formulario" >
             <label for='campo1'>Sala:</label>
             <select name="idSala" id="idSala" >
                 <option value="">Selecione</option>
@@ -24,7 +24,7 @@
             <label for='campo1'>Data:</label>
             <input class="input_formulario" id='data' type='text' name='data' value="<?php echo set_value('data'); ?>" />      
         </div>
-        <div style=" width: 30%; " class="div_input_formulario" >
+        <div style=" width: 35%; " class="div_input_formulario" >
             <label for='campo1'>Horários disponíveis:</label>
             <select name="horaInicial" id="horarios" >
                 <option value="">Selecione</option>
@@ -37,7 +37,7 @@
     </div>
 
 
-    <div style="text-align: center">          
+    <div style="text-align: center; margin-top: 30px">          
         <a class="btn btn-primary" href="<?php echo base_url(); ?>reserva" >&laquo; Voltar</a>
         <input type='submit' value='Inserir' class="btn btn-primary" />
     </div>

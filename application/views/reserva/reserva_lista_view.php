@@ -4,7 +4,7 @@
         <h2>MINHAS RESERVAS</h2>
     </div>
     <div  style="width: 100%; margin-bottom: 5px;">
-        <a  class="btn" href="<?php echo base_url() . 'reserva/form_reserva'; ?>">Nova reserva</a>
+        <a  class="btn btn-primary" href="<?php echo base_url() . 'reserva/form_reserva'; ?>"><i class="glyphicon glyphicon-plus"></i> Nova reserva</a>
     </div>
 
 
@@ -28,7 +28,7 @@
                     
                     ?>
                     <tr>
-                        <td style="width: 20%"> <?php echo $reserva->descricao; ?></td>
+                        <td style="width: 20%; text-align: left;"> <?php echo $reserva->descricao; ?></td>
                         <td style="width: 20%"> <?php echo $reserva->nomeSala; ?></td>
                         <td style="width: 20%"> <?php echo $data; ?></td>
                         <td style="width: 20%"> <?php echo $reserva->horaInicial.':00 às '.($reserva->horaInicial+1).':00'; ?></td>
