@@ -70,16 +70,23 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
 
-                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><?php echo anchor('reserva', 'Minhas reservas'); ?></li>
+                                <li><?php echo anchor('reserva/form_reserva', 'Nova reserva'); ?></li>  
+                                    
+                                    
+                            </ul>
+                        </li> 
                         
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><?php echo anchor('sala', 'Salas'); ?></li>
+                                <li><?php echo anchor('usuario/listar_usuarios', 'Usuarios'); ?></li>  
                                     
-                                    <li class="divider"></li>
-                                    <li class="nav-header">Administrador</li>
-                                    <li><?php echo anchor('usuario/listar_usuarios', 'Usuarios'); ?></li>
+                                    
                             </ul>
                         </li>
                         

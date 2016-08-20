@@ -36,6 +36,7 @@ class Sala extends CI_Controller {
     public function salvar_sala() {
         
         //Valida os campos
+        $idSala = $this->input->post('idSala');
         $this->form_validation->set_rules('idSala', 'idSala');
         $this->form_validation->set_rules('nomeSala', 'NOME SALA', 'required|ucwords');
 
@@ -47,7 +48,7 @@ class Sala extends CI_Controller {
                 $this->form_editar_sala(null);
         }
         else {
-            $dados = elements(array('sala'), $this->input->post());
+            $dados = array('nomeSala' => $this->input->post('nomeSala'));
 
             if ($idSala == '')
                 $this->sala_model->salvar_sala($dados);

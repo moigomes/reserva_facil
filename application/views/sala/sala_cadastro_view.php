@@ -15,7 +15,7 @@
     </div>
 
 
-    <div style="text-align: center">          
+    <div style="text-align: center; margin-top: 30px">          
         <a class="btn btn-primary" href="<?php echo base_url(); ?>sala" >&laquo; Voltar</a>
         <input type='submit' value='Inserir' class="btn btn-primary" />
     </div>
