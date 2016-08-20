@@ -26,9 +26,9 @@
         </div>
         <div style=" width: 30%; " class="div_input_formulario" >
             <label for='campo1'>Horários disponíveis:</label>
-            <select name="hora" id="horarios" >
+            <select name="horaInicial" id="horarios" >
                 <option value="0">Selecione</option>
-                
+
 
             </select>      
         </div>
@@ -80,13 +80,12 @@
                 type: "POST",
                 url: "<?php echo base_url(); ?>reserva/verifica_horarios",
                 data: "idSala=" + idSala + "&data=" + data,
-                
                 success: function (data)
                 {
 
-                   
-                        $('#horarios').html(data);
-                    
+
+                    $('#horarios').html(data);
+
                 }
             });
 

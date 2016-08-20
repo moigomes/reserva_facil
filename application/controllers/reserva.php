@@ -86,20 +86,27 @@ class Reserva extends CI_Controller {
     function verifica_horarios() {
         $idSala = $this->input->post('idSala');
         $data = $this->input->post('data');
-
         $data = explode('/', $data);
         $data = $data[2] . '-' . $data[1] . '-' . $data[0];
 
-
-        $resultados = $this->reserva_model->verifica_horarios($idSala, $data)->result();
-
+        if ($this->reserva_model->verifica_horarios($idSala, $data)->num_rows() > 0) {
+            $resultados = $this->reserva_model->verifica_horarios($idSala, $data)->result();
+            //Cria um array com os horarios ja reservados para a sala na data selecionada
+            $i = 0;
+            foreach ($resultados as $resultado) {
+                $hora[$i] = $resultado->horaInicial;
+                $i++;
+            }
+        } else {
+            $hora[0] = 0;
+        }
 
         $horarios = '<option value="0">Selecione</option>';
         for ($i = 8; $i <= 18; $i++) {
-            foreach ($resultados as $resultado) {
-                if ($resultado->hora != $i) {
-                    $horarios .='<option value="' . $i . '">' . $i . '</option>';
-                }
+
+            if (array_search($i, $hora) === FALSE) {
+
+                $horarios .='<option value="' . $i . '">' . $i . '</option>';
             }
         }
 

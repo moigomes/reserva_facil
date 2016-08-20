@@ -1,18 +1,11 @@
 <?php
-if (isset($sala))
-{
+if (isset($sala)) {
     $idSala = $sala->idSala;
     $nomeSala = $sala->nomeSala;
-    
+} else {
+    $idSala = set_value('idSala');
+    $nomeSala = set_value('nomeSala');
 }
- else {
-   $idSala = set_value('idSala');
-    $nomeSala= set_value('nomeSala');
-    
- }
-    
-    
-
 ?>
 
 
@@ -28,18 +21,18 @@ if (isset($sala))
 
 
 
-   <div  style="position: relative; width: 100%"  >  
+    <div  style="position: relative; width: 100%"  >  
         <div style=" width: 100%; " class="div_input_formulario" >
             <label for='campo1'>Nome:</label>
             <input class="input_formulario" id='campo1' type='text' name='nomeSala' value="<?php echo $nomeSala; ?>" />      
         </div>
-        
+
         <div style="clear: both"></div>
     </div>
 
 
     <div style="text-align: center">          
-        <a class="btn btn-primary" href="<?php echo base_url();  ?>sala" >&laquo; Voltar</a>
+        <a class="btn btn-primary" href="<?php echo base_url(); ?>sala" >&laquo; Voltar</a>
         <input type='submit' value='Atualizar' class="btn btn-primary" />
     </div>
 
