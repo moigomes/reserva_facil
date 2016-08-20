@@ -17,8 +17,9 @@ class Reserva_model extends CI_Model {
     }
 
     public function listar_reservas() {
-        $this->db->select('reservas.*');
-        $this->db->from('reservas');   
+        $this->db->select('*');
+        $this->db->from('reservas');
+        $this->db->join('salas', 'salas.idSala=reservas.idReserva');
         $this->db->order_by('reservas.data');
         return $this->db->get();
     }
@@ -34,6 +35,13 @@ class Reserva_model extends CI_Model {
         $this->db->select('reservas.*');
         $this->db->from('reservas');
         $this->db->where('idReserva', $idReserva);
+        return $this->db->get();
+    }
+    
+    function verifica_horarios($idSala, $data){
+        $this->db->select('reservas.*');
+        $this->db->from('reservas');
+        $this->db->where(array('idSala' => $idSala, 'data' =>$data));
         return $this->db->get();
     }
 

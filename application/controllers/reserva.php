@@ -36,7 +36,7 @@ class Reserva extends CI_Controller {
 
     //Reune os dados vindo do formulario, valida e manda para o model salvar no banco
     public function salvar_reserva() {
-        
+
         //Valida os campos
         $this->form_validation->set_rules('idSala', 'idSala');
         $this->form_validation->set_rules('data', 'DATA', 'required');
@@ -76,24 +76,34 @@ class Reserva extends CI_Controller {
         );
 
         $dados2 = array(
-        'reserva' => $reserva[0],
-            );
+            'reserva' => $reserva[0],
+        );
         $this->load->view('includes/cabecalho', $dados);
         $this->load->view('reserva/reserva_edita_view', $dados2);
         $this->load->view('includes/rodape');
     }
-    
-    
-    function verifica_horarios(){
+
+    function verifica_horarios() {
         $idSala = $this->input->post('idSala');
         $data = $this->input->post('data');
-        $resultado='<option value="0">Selecione</option>';
-       for ($i = 8; $i <= 18; $i++) { 
-             $resultado .='<option value="'.$i.'">'.$i.'</option>';   
-        }  
-        
-        echo $resultado;
-        
+
+        $data = explode('/', $data);
+        $data = $data[2] . '-' . $data[1] . '-' . $data[0];
+
+
+        $resultados = $this->reserva_model->verifica_horarios($idSala, $data)->result();
+
+
+        $horarios = '<option value="0">Selecione</option>';
+        for ($i = 8; $i <= 18; $i++) {
+            foreach ($resultados as $resultado) {
+                if ($resultado->hora != $i) {
+                    $horarios .='<option value="' . $i . '">' . $i . '</option>';
+                }
+            }
+        }
+
+        echo $horarios;
     }
 
 }
