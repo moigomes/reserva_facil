@@ -45,18 +45,22 @@ class Reserva extends CI_Controller {
 
 
         if ($this->form_validation->run() == FALSE) {
-            if ($idReserva == '')
-                $this->form_reserva();
-            else
-                $this->form_editar_reserva(null);
-        }
-        else {
-            $dados = elements(array('reserva'), $this->input->post());
 
-            if ($idReserva == '')
-                $this->reserva_model->salvar_reserva($dados);
-            else
-                $this->reserva_model->atualizar_reserva($dados, $idReserva);
+            $this->form_reserva();
+        } else {
+
+            $data = explode('/', $this->input->post('data'));
+            $data = $data[2] . '-' . $data[1] . '-' . $data[0];
+            $dados = array('descricao' => $this->input->post('descricao'),
+                'idSala' => $this->input->post('idSala'),
+                'data' => $data,
+                'horainicial' => $this->input->post('horaInicial'),
+                'idUsuario' => $this->session->userdata('idUsuario')
+            );
+
+
+            $this->reserva_model->salvar_reserva($dados);
+
 
             redirect('reserva');
         }
@@ -101,12 +105,12 @@ class Reserva extends CI_Controller {
             $hora[0] = 0;
         }
 
-        $horarios = '<option value="0">Selecione</option>';
+        $horarios = '<option value="">Selecione</option>';
         for ($i = 8; $i <= 18; $i++) {
 
             if (array_search($i, $hora) === FALSE) {
 
-                $horarios .='<option value="' . $i . '">' . $i . '</option>';
+                $horarios .='<option value="' . $i . '">' . $i .':00 às '.($i+1).':00</option>';
             }
         }
 

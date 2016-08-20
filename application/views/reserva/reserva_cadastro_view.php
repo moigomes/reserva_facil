@@ -13,9 +13,9 @@
         <div style=" width: 30%; " class="div_input_formulario" >
             <label for='campo1'>Sala:</label>
             <select name="idSala" id="idSala" >
-                <option value="0">Selecione</option>
+                <option value="">Selecione</option>
                 <?php foreach ($salas as $sala) { ?>
-                    <option value="<?php echo $sala->idSala; ?>"><?php echo $sala->nomeSala; ?></option>   
+                    <option <?php if (set_value('idSala') == $sala->idSala) echo 'selected="selected"'; ?> value="<?php echo $sala->idSala; ?>"><?php echo $sala->nomeSala; ?></option>   
                 <?php } ?>
 
             </select>
@@ -27,7 +27,7 @@
         <div style=" width: 30%; " class="div_input_formulario" >
             <label for='campo1'>Horários disponíveis:</label>
             <select name="horaInicial" id="horarios" >
-                <option value="0">Selecione</option>
+                <option value="">Selecione</option>
 
 
             </select>      
@@ -69,26 +69,32 @@
 
         });
 
+        $('#idSala').change(function () {
+            atualizaHorarios();
+
+        });
+
         function atualizaHorarios() {
 
 
             var idSala = $('#idSala').val();
 
             var data = $('#data').val();
-            //alert(data2);
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>reserva/verifica_horarios",
-                data: "idSala=" + idSala + "&data=" + data,
-                success: function (data)
-                {
+            if (idSala != '' && data != '') {
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url(); ?>reserva/verifica_horarios",
+                    data: "idSala=" + idSala + "&data=" + data,
+                    success: function (data)
+                    {
 
 
-                    $('#horarios').html(data);
+                        $('#horarios').html(data);
 
-                }
-            });
+                    }
+                });
 
+            }
         }
 
 

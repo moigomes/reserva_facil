@@ -22,12 +22,16 @@
                 </tr>   
             </thead>
             <tbody>
-                <?php foreach ($reservas as $reserva) { ?>
+                <?php foreach ($reservas as $reserva) {
+                    $data = explode('-', $reserva->data);
+                    $data = $data[2].'/'.$data[1].'/'.$data[0]
+                    
+                    ?>
                     <tr>
                         <td style="width: 20%"> <?php echo $reserva->descricao; ?></td>
                         <td style="width: 20%"> <?php echo $reserva->nomeSala; ?></td>
-                        <td style="width: 20%"> <?php echo $reserva->data; ?></td>
-                        <td style="width: 20%"> <?php echo $reserva->horaInicial; ?></td>
+                        <td style="width: 20%"> <?php echo $data; ?></td>
+                        <td style="width: 20%"> <?php echo $reserva->horaInicial.':00 às '.($reserva->horaInicial+1).':00'; ?></td>
 
 
                         <td>

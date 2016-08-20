@@ -19,8 +19,8 @@ class Reserva_model extends CI_Model {
     public function listar_reservas() {
         $this->db->select('*');
         $this->db->from('reservas');
-        $this->db->join('salas', 'salas.idSala=reservas.idReserva');
-        $this->db->order_by('reservas.data');
+        $this->db->join('salas', 'salas.idSala=reservas.idSala');
+        $this->db->order_by('reservas.data', 'desc');
         return $this->db->get();
     }
 
