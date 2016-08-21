@@ -115,6 +115,7 @@
                             //alert(data);
                             $('#ModalMensagemReserva').modal('show');
                             $("#horarios").val("").change();
+                            $("#idSala").val("").change();
                         }
 
                     }
