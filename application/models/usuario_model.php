@@ -18,7 +18,7 @@ class Usuario_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('usuarios');
-        $this->db->order_by("nome");
+        $this->db->order_by("nomeUsuario");
         return $this->db->get();
     }
     

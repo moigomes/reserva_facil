@@ -10,7 +10,7 @@
             <label for='campo1'>Descrição:</label>
             <input class="input_formulario_ultimo" id='campo1' type='text' name='descricao' value="<?php echo set_value('descricao'); ?>" />      
         </div>
-        <div style=" width: 30%; margin-right: 20px; " class="div_input_formulario" >
+        <div style=" width: 40%; margin-right: 20px; " class="div_input_formulario" >
             <label for='campo1'>Sala:</label>
             <select name="idSala" id="idSala" >
                 <option value="">Selecione</option>
@@ -20,7 +20,7 @@
 
             </select>
         </div>
-        <div style=" width: 30%; " class="div_input_formulario" >
+        <div style=" width: 20%; " class="div_input_formulario" >
             <label for='campo1'>Data:</label>
             <input class="input_formulario" id='data' type='text' name='data' value="<?php echo set_value('data'); ?>" />      
         </div>
