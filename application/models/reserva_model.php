@@ -16,12 +16,25 @@ class Reserva_model extends CI_Model {
             $this->db->update('reservas', $dados);
     }
 
-    public function listar_reservas($idUsuario) {
+    public function listar_reservas_por_idUsuario($idUsuario) {
         $this->db->select('*');
         $this->db->from('reservas');
         $this->db->join('salas', 'salas.idSala=reservas.idSala');
         $this->db->where('idUsuario', $idUsuario);
         $this->db->order_by('reservas.data', 'desc');
+        $this->db->order_by('nomeSala', 'asc');
+        $this->db->order_by('horaInicial', 'asc');
+        return $this->db->get();
+    }
+    
+     public function listar_reservas() {
+        $this->db->select('*');
+        $this->db->from('reservas');
+        $this->db->join('salas', 'salas.idSala=reservas.idSala');
+        $this->db->join('usuarios', 'usuarios.idUsuario=reservas.idUsuario');
+        $this->db->order_by('reservas.data', 'desc');
+        $this->db->order_by('nomeSala', 'asc');
+        $this->db->order_by('horaInicial', 'asc');
         return $this->db->get();
     }
 

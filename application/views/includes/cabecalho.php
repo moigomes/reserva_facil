@@ -74,6 +74,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><?php echo anchor('reserva', 'Minhas reservas'); ?></li>
+                                <li><?php echo anchor('reserva/todas_reservas', 'Todas reservas'); ?></li>
                                 <li><?php echo anchor('reserva/form_reserva', 'Nova reserva'); ?></li>  
                                     
                                     

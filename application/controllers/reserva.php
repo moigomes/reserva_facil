@@ -15,7 +15,7 @@ class Reserva extends CI_Controller {
     public function index() {
 
         $idUsuario = $this->session->userdata('idUsuario');
-        $reservas = $this->reserva_model->listar_reservas($idUsuario)->result();
+        $reservas = $this->reserva_model->listar_reservas_por_idUsuario($idUsuario)->result();
 
         $dados = array('titulo_pagina' => 'Reserva Fácil - Lista de Reservas');
         $dados2 = array('reservas' => $reservas);
@@ -25,6 +25,20 @@ class Reserva extends CI_Controller {
         $this->load->view('includes/rodape');
     }
 
+    
+     public function todas_reservas() {
+
+       
+        $reservas = $this->reserva_model->listar_reservas()->result();
+
+        $dados = array('titulo_pagina' => 'Reserva Fácil - Lista de Reservas');
+        $dados2 = array('reservas' => $reservas);
+
+        $this->load->view('includes/cabecalho', $dados);
+        $this->load->view('reserva/reservas_view', $dados2);
+        $this->load->view('includes/rodape');
+    }
+    
     public function form_reserva() {
 
         $dados = array('titulo_pagina' => 'Reserva Fácil - Cadastro de Reservas');
