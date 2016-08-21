@@ -14,8 +14,8 @@ class Reserva extends CI_Controller {
 
     public function index() {
 
-
-        $reservas = $this->reserva_model->listar_reservas()->result();
+        $idUsuario = $this->session->userdata('idUsuario');
+        $reservas = $this->reserva_model->listar_reservas($idUsuario)->result();
 
         $dados = array('titulo_pagina' => 'Reserva Fácil - Lista de Reservas');
         $dados2 = array('reservas' => $reservas);
