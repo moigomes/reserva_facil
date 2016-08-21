@@ -14,7 +14,7 @@
     <div >
         <div class="div_input_formulario" style="width: 60%">
             <label for='campo1'>Nome:</label>
-            <input id='campo1' type='text' name='nome' value="<?php echo set_value('nome'); ?>"  />
+            <input id='campo1' type='text' name='nomeUsuario' value="<?php echo set_value('nomeUsuario'); ?>"  />
 
         </div>
 
@@ -24,8 +24,8 @@
 
             <select name='nivelAcesso' class="input_formulario_ultimo">
                 <option value="" <?php if (set_value('nivelAcesso') === '') echo 'selected="selected"'; ?>>Selecione</option>
-                <option value="0" <?php if (set_value('nivelAcesso') === '0') echo 'selected="selected"'; ?>>Acesso total(Admin)</option>
-                <option value="1" <?php if (set_value('nivelAcesso') === '1') echo 'selected="selected"'; ?>>Acesso parcial</option>
+                <option value="0" <?php if (set_value('nivelAcesso') === '0') echo 'selected="selected"'; ?>>Admin</option>
+                <option value="1" <?php if (set_value('nivelAcesso') === '1') echo 'selected="selected"'; ?>>Usuário</option>
 
 
             </select>
@@ -40,14 +40,9 @@
         <input id='campo1' type='text' name='email' value="<?php echo set_value('email'); ?>"  />      
     </div>
     <div >
-        <label for='campo1'>Login:</label>
-
-        <input id='campo1' type='text' name='login' value="<?php echo set_value('login'); ?>"  />      
-    </div>
-    <div >
         <label for='campo1'>Senha:</label>
 
-        <input id='campo1' type='text' name='senha' value="<?php echo set_value('senha'); ?>" />      
+        <input id='campo1' class="form-control" type='password' name='senha' value="<?php echo set_value('senha'); ?>" />      
     </div>
 
     <div style = "text-align: center; margin-top: 30px">

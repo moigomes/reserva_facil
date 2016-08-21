@@ -1,18 +1,15 @@
 <?php
-if ($usuario)
-{
+if ($usuario) {
     $idUsuario = $usuario->idUsuario;
-    $idPessoa = $usuario->idPessoa;
+    $nomeUsuario = $usuario->nomeUsuario;
     $nivelAcesso = $usuario->nivelAcesso;
-    $login = $usuario->login;
+    $email = $usuario->email;
     $senha = $usuario->senha;
-}
-else
-{
+} else {
     $idUsuario = set_value('idUsuario');
-    $idPessoa = set_value('idPessoa');
+    $nomeUsuario = set_value('nomeUsuario');
     $nivelAcesso = set_value('nivelAcesso');
-    $login = set_value('login');
+    $email = set_value('email');
     $senha = set_value('senha');
 }
 ?>
@@ -22,23 +19,16 @@ else
     </div>
 
 
-    <?php
-    echo form_open('usuario/salvar_usuario');
-    ?>
+<?php
+echo form_open('usuario/salvar_usuario');
+?>
 
     <input id='campo0' type='hidden' name='idUsuario' value="<?php echo $idUsuario; ?>" />
 
     <div >
         <div class="div_input_formulario" style="width: 60%">
-            <label for='campo1'>Funcionário:</label>
-
-
-            <select name='idPessoa' class="input_formulario">
-                <option value="<?php echo $usuario->idPessoa; ?>"><?php echo $usuario->nome; ?></option>
-                    
-
-
-            </select>
+            <label for='campo1'>Nome:</label>
+            <input id='campo1' type='text' name='nomeUsuario' value="<?php echo $usuario->nomeUsuario; ?>"  />
 
         </div>
 
@@ -48,8 +38,8 @@ else
 
             <select name='nivelAcesso' class="input_formulario_ultimo">
                 <option value="" <?php if ($nivelAcesso === "") echo 'selected="selected"'; ?>>Selecione</option>
-                <option value="1" <?php if ($nivelAcesso === '1') echo 'selected="selected"'; ?>>Acesso total</option>
-                <option value="0" <?php if ($nivelAcesso === '0') echo 'selected="selected"'; ?>>Acesso limitado</option>
+                <option value="1" <?php if ($nivelAcesso === '1') echo 'selected="selected"'; ?>>Admin</option>
+                <option value="0" <?php if ($nivelAcesso === '0') echo 'selected="selected"'; ?>>Usuário</option>
 
 
             </select>
@@ -60,14 +50,14 @@ else
     <hr>
     <div >
 
-        <label for='campo1'>Login:</label>
+        <label for='campo1'>E-mail:</label>
 
-        <input id='campo1' type='text' class="input_formulario" name='login' value="<?php echo $login; ?>"  />      
+        <input id='campo1' type='text' class="input_formulario" name='email' value="<?php echo $email; ?>"  />      
     </div>
     <div >
         <label for='campo2'>Senha:</label>
 
-        <input id='campo2' type='password' class="input_formulario" name='senha' value="<?php echo $senha; ?>" />      
+        <input id='campo2' type='password' class="form-control" name='senha' value="" />      
     </div>
 
     <div style = "text-align: center; margin-top: 30px">
