@@ -8,6 +8,7 @@ class Sala extends CI_Controller {
     function __construct() {
         parent::__construct();
         verifica_login(); //Verifica se tem usuario logado
+        verifica_usuario(); //Verifica se tem usuario tem permissao
         $this->load->model('sala_model');
     }
 

@@ -80,6 +80,7 @@
                             </ul>
                         </li> 
                         
+                        <?php if($this->session->userdata('nivelAcesso') == 0) { ?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -89,7 +90,7 @@
                                     
                             </ul>
                         </li>
-                        
+                        <?php } ?> 
                         
                     </ul>
                     <ul class="nav pull-right" style="margin-right:7px; margin-top: 9px;">

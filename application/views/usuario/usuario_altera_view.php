@@ -35,7 +35,7 @@ if ($usuario) {
         <div class="div_input_formulario" style="width: 40%">
             
                 <label for='campo1'>Nivel Acesso:</label>
-                <input id='campo1' type='text' name='nomeUsuario' disabled value="<?php if ($nivelAcesso === '1') echo "Admin"; else echo "Usuário"; ?>"  />
+                <input id='campo1' type='text' name='nomeUsuario' disabled value="<?php if ($nivelAcesso === '0') echo "Admin"; else echo "Usuário"; ?>"  />
 
             
 

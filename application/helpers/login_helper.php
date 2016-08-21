@@ -11,4 +11,18 @@ function verifica_login(){
           redirect('login');
         }
       
+        
+        
+         
+}
+
+function verifica_usuario(){
+    $CI =& get_instance (); 
+     $nivelAcesso = $CI->session->userdata('nivelAcesso');
+
+        if ($nivelAcesso > 0) {
+          $mensagem_sessao = "Você não tem permissão para acessar esta opção, contate o Administrador do Sistema!" ; 
+          $CI -> session -> set_flashdata ( 'mensagem' , $mensagem_sessao );   
+          redirect('inicio');
+        }
 }

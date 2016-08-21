@@ -37,9 +37,10 @@ class Login extends CI_Controller {
 
                 $nomeUsuario = $usuario[0]->nomeUsuario;
                 $idUsuario = $usuario[0]->idUsuario;
+                $nivelAcesso = $usuario[0]->nivelAcesso;
 
 
-                $data = array('email' => $email, 'nomeUsuario' => $nomeUsuario, 'idUsuario' => $idUsuario, 'logado' => true);
+                $data = array('email' => $email, 'nomeUsuario' => $nomeUsuario, 'idUsuario' => $idUsuario, 'nivelAcesso' => $nivelAcesso, 'logado' => true);
                 $this->session->set_userdata($data);
 
                 $this->enviar_email();

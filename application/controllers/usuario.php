@@ -16,7 +16,7 @@ class Usuario extends CI_Controller {
     }
 
     public function form_usuario() {
-
+        verifica_usuario();
 
 
         $dados = array('titulo_pagina' => 'RESERVA FÁCIL - Cadastro de Usuario');
@@ -28,7 +28,7 @@ class Usuario extends CI_Controller {
     }
 
     public function form_editar_usuario($idUsuario) {
-       
+       verifica_usuario();
 
         $usuario = $this->usuario_model->listar_usuario_por_idUsuario($idUsuario)->result();
 
@@ -58,6 +58,7 @@ class Usuario extends CI_Controller {
     }
     
     public function salvar_usuario() {
+        verifica_usuario();
         $idUsuario = $this->input->post('idUsuario');
         $this->form_validation->set_rules('idUsuario', 'idUsuario');
         $this->form_validation->set_rules('nivelAcesso', 'NÍVEL DE ACESSO', 'required');
@@ -110,6 +111,7 @@ class Usuario extends CI_Controller {
     }
 
     public function listar_usuarios() {
+        verifica_usuario();
         $usuarios = $this->usuario_model->listar_usuarios()->result();
 
         $dados = array('titulo_pagina' => 'RESERVA FÁCIL - Lista de Usuarios');

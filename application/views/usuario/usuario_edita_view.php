@@ -38,8 +38,8 @@ echo form_open('usuario/salvar_usuario');
 
             <select name='nivelAcesso' class="input_formulario_ultimo">
                 <option value="" <?php if ($nivelAcesso === "") echo 'selected="selected"'; ?>>Selecione</option>
-                <option value="1" <?php if ($nivelAcesso === '1') echo 'selected="selected"'; ?>>Admin</option>
-                <option value="0" <?php if ($nivelAcesso === '0') echo 'selected="selected"'; ?>>Usuário</option>
+                <option value="0" <?php if ($nivelAcesso === '0') echo 'selected="selected"'; ?>>Admin</option>
+                <option value="1" <?php if ($nivelAcesso === '1') echo 'selected="selected"'; ?>>Usuário</option>
 
 
             </select>
