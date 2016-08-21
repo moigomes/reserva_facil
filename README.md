@@ -43,11 +43,6 @@ Usuário:
 email: usuario@usuario.com
 senha: usuario
 ----------------------------------------------------------------------------------------------------
-https://github.com/moigomes/reserva_facil
-
-Qualquer dúvida, estou a disposição...
-
-Abraço
 
 
 
@@ -55,23 +50,5 @@ Abraço
 
   
 
-Em 5 de agosto de 2016 09:55, Cícero Augusto <cicero@ditech.com.br> escreveu:
-Olá Moisés! 
 
-Ficamos felizes com seu interesse em participar deste processo! Obrigado! :)
-Conforme combinamos, seguem abaixo as instruções desta etapa: 
-Você deverá desenvolver um sistema em PHP que resolva o problema descrito no PDF em anexo;
-O sistema deverá ser versionado no gitlab.com ou github.com;
-Seu prazo é até o dia 07/08, às 23h59;
-Após realizar o desafio, você deverá encaminhar por e-mail o link para acessarmos seu projeto. 
-Pedimos que você confirme o recebimento deste e-mail, dizendo também se está de acordo com as instruções deste desafio. Se tiver alguma dúvida ou dificuldade, fique à vontade para entrar em contato. 
-Boa sorte!
-
--- 
-Cícero Augusto de Melo
-Administrativo
-Ditech Studio Web Ltda.
-Tel.: +55 51 3021-2215
-Skype: cicero.ditech
-www.ditech.com.br
 
