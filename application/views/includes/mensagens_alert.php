@@ -110,6 +110,33 @@ $this->session->set_flashdata('mensagem', '');
 </div>
 
 
+<!-- Modal recupera email (INDEX) -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Recuperar Senha!</h4>
+            </div>
+            <div class="modal-body">
+            <p><h4>Informe seu E-mail:</h4></p>
+            <?php
+            echo form_open('login/recupera_senha');
+            ?>
+            <input type="text" class="form-control" name="email"/>
+            <p>Sua senha será enviada para o e-mail cadastrado.</p>
+
+        </div>
+             <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+            <input type="submit" class="btn btn-primary " value="Enviar"/>
+ </form>
+
+        </div>
+        </div>
+    </div>
+</div>
+
 
 
 

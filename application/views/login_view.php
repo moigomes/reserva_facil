@@ -135,28 +135,8 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
     </div> 
    
 
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-header">
-
-            <h3 id="myModalLabel">Recuperar senha:</h3>
-        </div>
-        <div class="modal-body">
-            <p><h4>Informe seu E-mail:</h4></p>
-            <?php
-            echo form_open('login/recupera_senha');
-            ?>
-            <input type="text" name="email"/>
-            <p>Sua senha ser� enviada para o e-mail cadastrado.</p>
-
-        </div>
-        <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
-            <input type="submit" class="btn btn-primary " value="Enviar"/>
-
-        </div>
-    </div>
-    </form>
+    
+   
 
 
 

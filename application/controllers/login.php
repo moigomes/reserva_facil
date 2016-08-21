@@ -77,7 +77,7 @@ class Login extends CI_Controller {
 
             $this->session->set_flashdata('mensagem', 'Sua senha foi enviada para o E-mail: ' . $email . '!');
         } else {
-            $this->session->set_flashdata('mensagem', 'O usuário <B>' . $email . '</B> não está cadastrado!');
+            $this->session->set_flashdata('mensagem', 'O e-mail <B>' . $email . '</B> não está cadastrado!');
         }
 
         redirect('login');
