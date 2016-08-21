@@ -97,7 +97,7 @@
                                     <a class="btn btn-primary" href="#"><i class="glyphicon glyphicon-user"></i> <?php echo $this->session->userdata('nomeUsuario'); ?></a>
                                     <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#" ><span class="caret" style="border-top-color: white"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="icon-wrench"></i> Alterar</a></li>
+                                        <li><a href="<?php echo base_url() . 'usuario/form_alterar_senha/'.$this->session->userdata('idUsuario'); ?>"><i class="icon-wrench"></i> Alterar senha</a></li>
                                         <li><a href="<?php echo base_url() . 'login/sair'; ?>"><i class="icon-off"></i> Sair</a></li>
                                     </ul>
                                 </div></li>

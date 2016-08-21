@@ -45,10 +45,11 @@ class Reserva_model extends CI_Model {
         return $this->db->get();
     }
     
-    function verifica_reserva($idUsuario, $data){
+    function verifica_reserva($idUsuario, $data, $horaInicial){
          $this->db->select('reservas.*');
         $this->db->from('reservas');
-        $this->db->where(array('idUsuario' => $idUsuario, 'data' =>$data));
+        $this->db->where(array('idUsuario' => $idUsuario, 'data' =>$data, 'horaInicial' => $horaInicial));
+        
         return $this->db->get();
     }
 

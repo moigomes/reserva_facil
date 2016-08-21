@@ -90,4 +90,27 @@ $this->session->set_flashdata('mensagem', '');
     </div>
 </div>
 
+<div class="modal fade" id="ModalMensagemReserva" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Atenção!</h4>
+            </div>
+            <div class="modal-body">
+                <h5>Desculpa mas voce já reservou outra sala para esta mesma data e horário!</h5>
+    
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 

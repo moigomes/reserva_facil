@@ -97,6 +97,35 @@
             }
         }
 
+        $('#horarios').change(function () {
+
+            var idSala = $('#idSala').val();
+            var data = $('#data').val();
+            var hora = $('#horarios').val();
+            //alert("a hora é = " + hora);
+            if (idSala != '' && data != '') {
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url(); ?>reserva/verifica_reserva",
+                    data: "data=" + data + "&horaInicial=" + hora,
+                    success: function (data)
+                    {
+
+                        if (data != false) {
+                            //alert(data);
+                            $('#ModalMensagemReserva').modal('show');
+                            $("#horarios").val("").change();
+                        }
+
+                    }
+                });
+
+            }
+
+        });
+
+
+
 
 
     });

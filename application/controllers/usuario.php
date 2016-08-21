@@ -41,7 +41,22 @@ class Usuario extends CI_Controller {
         $this->load->view('usuario/usuario_edita_view', $dados2);
         $this->load->view('includes/rodape');
     }
+    
+    public function form_alterar_senha($idUsuario) {
+       
 
+        $usuario = $this->usuario_model->listar_usuario_por_idUsuario($idUsuario)->result();
+
+        $dados = array('titulo_pagina' => 'RESERVA FÁCIL - Cadastro de Usuario');
+
+        $dados2 = array(
+            'usuario' => $usuario[0],
+        );
+        $this->load->view('includes/cabecalho', $dados);
+        $this->load->view('usuario/usuario_altera_view', $dados2);
+        $this->load->view('includes/rodape');
+    }
+    
     public function salvar_usuario() {
         $idUsuario = $this->input->post('idUsuario');
         $this->form_validation->set_rules('idUsuario', 'idUsuario');
@@ -70,6 +85,28 @@ class Usuario extends CI_Controller {
             }
             redirect(base_url('usuario/listar_usuarios'));
         }
+    }
+
+    
+
+    public function alterar_senha() {
+        
+        $idUsuario = $this->input->post('idUsuario');
+        $this->form_validation->set_rules('senha', 'SENHA', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+           
+                $this->form_alterar_senha($idUsuario);
+        }else {
+            $dados = elements(array('senha'), $this->input->post());
+           
+                if ($this->usuario_model->atualizar_usuario($dados, $idUsuario) == 0)
+                    $this->session->set_flashdata('mensagem', 'Usuário atualizado com Sucesso! Faça Login novamente!');
+                else
+                    $this->session->set_flashdata('mensagem', 'Erro ao atualizar Usuário!');
+            }
+            redirect(base_url('login/sair'));
+        
     }
 
     public function listar_usuarios() {
