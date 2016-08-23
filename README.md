@@ -1,3 +1,6 @@
+Reserva Fácil
+Sistema de fila virtual para uso de salas de reuniões
+
 
 Sistema desenvolvido utilizando o Framework CodeIgniter e bootstrap 3.
 
